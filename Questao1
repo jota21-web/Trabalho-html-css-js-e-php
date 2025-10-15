@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Bem-vindo!</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        input[type="text"] {
+            padding: 6px;
+            width: 180px;
+            color: rgb(255, 115, 0);
+        }
+
+        button {
+            padding: 6px 14px;
+            margin-left: 8px;
+            cursor: pointer;
+            color-scheme: blue;
+        }
+
+        #mensagem {
+            margin-top: 15px;
+            font-weight: bold;
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bem-vindo!</h1>
+    <label for="nome">Digite seu nome:</label><br><br>
+    <input type="text" id="nome" placeholder="Seu nome">
+    <button onclick="mostrarMensagem()">Clique aqui</button>
+
+    <p id="mensagem"></p>
+
+    <script>
+        function mostrarMensagem() {
+            const nome = document.getElementById("nome").value.trim();
+            const mensagem = document.getElementById("mensagem");
+
+            if (nome === "") {
+                mensagem.textContent = "Insira seu nome.";
+            } else {
+                mensagem.textContent = `Olá, ${nome}! Seja bem-vindo à página do aluno.`;
+            }
+        }
+    </script>
+
+</body>
+</html>
+
