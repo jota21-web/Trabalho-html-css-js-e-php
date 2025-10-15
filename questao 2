@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Lista</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            color: brown;
+        }
+
+        input[type="number"] {
+            padding: 6px;
+            width: 65px;
+            color: brown;
+        }
+
+        button {
+            padding: 7px 14px;
+            margin-left: 8px;
+            cursor: pointer;
+            color: brown;
+        }
+
+        #mensagem {
+            margin-top: 15px;
+            font-weight: bold;
+            color: brown ;     
+          }
+
+        ul {
+            list-style-type: decimal;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Gerador de Lista</h1>
+    <label for="quantidade">Digite a quantidade:</label><br><br>
+    <input type="number" id="quantidade" min="1" placeholder="Digite um numero qualquer">
+    <button onclick="gerarLista()">Gerar Lista</button>
+
+    <p id="mensagem"></p>
+    <ul id="lista"></ul>
+
+    <script>
+        function gerarLista() {
+            const valor = document.getElementById("quantidade").value.trim();
+            const mensagem = document.getElementById("mensagem");
+            const lista = document.getElementById("lista");
+
+            lista.innerHTML = "";
+            mensagem.textContent = "";
+
+            if (valor === "" || isNaN(valor) || valor <= 0) {
+                mensagem.textContent = "Por favor, insira um número válido.";
+            } else {
+                for (let i = 1; i <= valor; i++) {
+                    const item = document.createElement("li");
+                    item.textContent = `JOAO GABRIEL ${i}`;
+                    lista.appendChild(item);
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
